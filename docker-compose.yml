@@ -1,0 +1,24 @@
+version: "3.3"
+name: course-project
+services:
+  frontend:
+    container_name: frontend-course-project
+    stdin_open: true
+    build:
+      context: /Frontend
+      dockerfile: /Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    command: pnpm start:dev
+  backend:
+    container_name: backend-course-project
+    stdin_open: true
+    build:
+      context: /Backend
+      dockerfile: /Dockerfile
+    restart: always
+    ports:
+      - "8000:1168"
+    command: pnpm start
+  
