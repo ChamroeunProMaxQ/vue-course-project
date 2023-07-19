@@ -1,0 +1,14 @@
+version: "3.9"
+name: course-project-backend
+services:
+  app:
+    container_name: backend-course-project
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file: ./.env
+    ports:
+      - "8000:${PORT}"
+    command: pnpm start:dev
