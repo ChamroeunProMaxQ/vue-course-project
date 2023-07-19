@@ -6,4 +6,4 @@ COPY .env ./.env
 COPY . ./
 RUN npm install -g pnpm
 RUN pnpm install
-CMD ["pnpm", "start:dev" ]
+CMD ["pnpm", "start"]
