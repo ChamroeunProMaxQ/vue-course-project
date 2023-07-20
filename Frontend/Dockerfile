@@ -16,9 +16,16 @@ RUN pnpm install
 COPY . .
 RUN pnpm build
 
+FROM nginx:1.21.6-perl as production-stage
+
+COPY --from=build-stage  /app/dist /var/www
+
+RUN rm /var/log/nginx/*
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
 # production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+# FROM nginx:stable-alpine as production-stage
+# COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
