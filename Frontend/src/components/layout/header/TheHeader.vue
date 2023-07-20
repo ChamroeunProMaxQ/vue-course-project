@@ -12,7 +12,7 @@ import { RouterLink } from "vue-router";
         </li>
         <li style="position: relative">
           <RouterLink to="/request">Request</RouterLink>
-          <p class="req-num">{{ requestNumber }}</p>
+          <p class="req-num">{{ requestNumber !== 0 ? requestNumber : "" }}</p>
         </li>
       </ul>
     </nav>

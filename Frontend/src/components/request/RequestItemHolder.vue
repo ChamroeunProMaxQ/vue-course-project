@@ -1,13 +1,23 @@
 <template>
   <div>
-    <h3>{{ email }}</h3>
+    <h3>{{ email }} to {{ "<" }} {{  getCoach ? getCoach.name : "" }} {{ ">" }}</h3>
     <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["email", "message"],
+  props: ["email", "message", "coachId"],
+  data() {
+    return {};
+  },
+  computed: {
+    getCoach() {
+      return this.$store.getters.getCoachById(this.coachId);
+    },
+  },
+
+  methods: {},
 };
 </script>
 

@@ -1,5 +1,8 @@
 version: "3.3"
 name: course-project
+networks:
+  sbs-network:
+    driver: bridge
 services:
   frontend:
     container_name: frontend-course-project
@@ -9,8 +12,9 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports:
-      - "3000:3000"
-    command: pnpm start:dev
+      - "3000:80"
+    networks:
+      - sbs-network
   backend:
     container_name: backend-course-project
     stdin_open: true
@@ -21,4 +25,6 @@ services:
     ports:
       - "8000:1168"
     command: pnpm start
+    networks:
+      - sbs-network
   

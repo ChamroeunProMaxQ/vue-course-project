@@ -1,10 +1,10 @@
 <template>
   <Teleport to="body">
-    <dialog :open="isOpen" >
+    <dialog v-if="isOpen" >
       <div>
-        <h3>Coach Detail</h3>
+        <h3>Alert </h3>
         <h2 @click="setIsOpen">x</h2>
-        <slot></slot>
+        <slot ></slot>
       </div>
     </dialog>
   </Teleport>
@@ -12,6 +12,18 @@
 
 <script>
 export default {
+  emits: ["toggle"],
+  //emit to open and close
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  methods: {
+    setIsOpen() {
+      this.$emit("toggle", (this.isOpen = !this.isOpen));
+    },
+  },
 };
 </script>
 
@@ -19,7 +31,7 @@ export default {
 dialog {
   display: block;
   position: fixed;
-  top: 50%;
+  top: 38%;
   margin: auto;
 }
 

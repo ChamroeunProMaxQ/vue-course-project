@@ -4,5 +4,11 @@ export default {
     },
     getCoach(state, payload) {
         state.coaches = payload;
-    }
+    },
+    getArea(state, payload) {
+        state.areas = payload;
+    },
+    getRequest(state, payload) {
+        state.requests = payload;
+    },
 }

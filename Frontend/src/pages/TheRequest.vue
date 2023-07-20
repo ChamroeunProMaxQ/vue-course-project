@@ -13,6 +13,14 @@ export default {
     getRequests() {
         this.$store.getters.getRequests;
     }
+  },
+  created() {
+    this.loadRequests();
+  },
+  methods : {
+    loadRequests() {
+        this.$store.dispatch('getRequestAction');
+    }
   }
 };
 </script>

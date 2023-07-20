@@ -28,9 +28,15 @@ export default {
       this.setFilter();
     }
   },
+  created() {
+    this.loadArea();
+  },
   methods : {
     setFilter() {
       this.$emit('filter',this.selectedSkills);
+    },
+    loadArea() {
+      this.$store.dispatch('getAreaAction');
     }
   }
 };

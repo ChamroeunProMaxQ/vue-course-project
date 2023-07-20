@@ -45,6 +45,10 @@ export default {
       } else {
         return "#4f608d";
       }
+    },
+
+    onCreate() {
+      
     }
 
   },

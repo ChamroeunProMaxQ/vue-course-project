@@ -18,15 +18,14 @@ components: {
 </template>
 
 <script>
-
 import axios from "axios";
 
 export default {
-  computed: {},
-  async mounted() {
-    const res = await axios.get("https://api.vue.kunapheap.com/coach");
-    this.$store.dispatch("getCoachAction", res.data);
-  }
+  computed: {
+  },
+  // async mounted() {
+
+  // },
 };
 </script>
 

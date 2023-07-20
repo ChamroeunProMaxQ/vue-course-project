@@ -1,1 +1,50 @@
-{"areas":[{"id":"a1","name":"Frontend"},{"id":"a2","name":"Backend"},{"id":"a3","name":"Career"}],"coaches":[{"id":"c1","name":"Maximilian Schwarzmüller","areas":["a1","a2","a3"],"price":2},{"id":"c2","name":"Chamroeun KH","areas":["a1","a2"],"price":3},{"id":"c3","name":"zin2","area":["a1","a3"],"price":8},{"id":"c4","name":"zin2","area":["a1","a3"],"price":8}],"requests":[{"id":"r1","coachId":"c1","email":"stevenkakoreal@gmail.com","message":"I need help with Angular"},{"id":"r2","email":"student@gmail.com","message":"Be my coach free wi5"}]}
+{
+  "areas": [
+    { "id": "a1", "name": "Frontend" },
+    { "id": "a2", "name": "Backend" },
+    { "id": "a3", "name": "Career" }
+  ],
+  "coaches": [
+    {
+      "id": "c1",
+      "name": "Maximilian Schwarzmüller",
+      "areas": ["a1", "a2", "a3"],
+      "price": 2
+    },
+    { "id": "c2", "name": "Chamroeun KH", "areas": ["a1", "a2"], "price": 3 },
+    { "id": "c3", "name": "zin2", "areas": ["a1", "a3"], "price": 8 },
+    { "id": "c4", "name": "zin2", "areas": ["a1", "a3"], "price": 8 }
+  ],
+  "requests": [
+    {
+      "id": "r1",
+      "coachId": "c1",
+      "email": "stevenkakoreal@gmail.com",
+      "message": "I need help with Angular"
+    },
+    {
+      "id": "r2",
+      "email": "student@gmail.com",
+      "message": "Be my coach free wi5",
+      "coachId": "c2"
+    },
+    {
+      "id": "r3",
+      "email": "stevenkakoreal@gmail.com",
+      "message": "rean pg kru",
+      "coachId": "c1"
+    },
+    {
+      "id": "r4",
+      "email": "stevenkakoreal@gmail.com",
+      "message": "rean pg kru",
+      "coachId": "c1"
+    },
+    {
+      "id": "r5",
+      "email": "es@gmail.com",
+      "message": "prean me pg bong",
+      "coachId": "c2"
+    }
+  ]
+}
