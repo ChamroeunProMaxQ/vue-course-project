@@ -5,7 +5,7 @@
 set -e
 
 echo "ingore changes file on server"
-git restore /home/chamroeun/vue-course-project/.
+git restore .
 
 echo "Pulling latest changes..."
 git pull
