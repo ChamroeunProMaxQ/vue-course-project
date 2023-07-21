@@ -12,14 +12,14 @@ services:
       dockerfile: ./Dockerfile
     restart: always
     ports:
-      - "3000:3000"
+      - "3000:80"
     networks:
       - sbs-network
     links:
       - backend
     depends_on:
       - backend
-    command: pnpm start:dev
+    # command: pnpm start:dev
   backend:
     container_name: backend-course-project
     stdin_open: true
