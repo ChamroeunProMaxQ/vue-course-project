@@ -4,6 +4,12 @@
 
 set -e
 
+echo "ingore changes file on server"
+git restore /home/chamroeun/vue-course-project/.
+
+echo "Pulling latest changes..."
+git pull
+
 echo "Deploying new build"
 echo "Stopping existing containers..."
 docker-compose down
