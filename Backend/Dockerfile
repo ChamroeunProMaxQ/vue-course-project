@@ -3,7 +3,6 @@ WORKDIR /usr/src/backend
 COPY package*.json ./
 COPY nodemon.json ./nodemon.json
 COPY .env-docker ./.env
-COPY ../../data.json ./
 COPY . ./
 RUN npm install -g pnpm
 RUN pnpm install
