@@ -5,7 +5,8 @@ import { RouterLink } from "vue-router";
 <template>
   <header>
     <nav>
-      <h1>Find Coach</h1>
+      <h1><RouterLink to="/coach"> Find Coach </RouterLink></h1>
+      
       <ul>
         <li>
           <RouterLink to="/coach">Coaches</RouterLink>

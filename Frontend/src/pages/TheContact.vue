@@ -1,6 +1,7 @@
 <template>
   <BaseContainer>
-    <h2>Interested? Coach : {{ this.$route.params.id }} Reach out now</h2>
+    <h2>Interested? Coach : {{ coach ? coach.name : "" }} </h2>
+    <h3>Reach out now</h3>
     <form v-on:submit.prevent="onSubmit">
       <div>
         <label for="name">Your Email</label>
@@ -12,7 +13,7 @@
       </div>
       <BaseButton mode="#3d008d">Send Message</BaseButton>
     </form>
-    <BaseDialog @toggle="setToggle">
+    <BaseDialog @toggle="setToggle" :isOpen="isOpen">
       <h1> {{ sendStatus }} </h1>
     </BaseDialog>
   </BaseContainer>
@@ -27,7 +28,13 @@ export default {
       email: "",
       message: "",
       sendStatus: "success",
+      isOpen: false,
     };
+  },
+  computed : {
+    coach() {
+      return this.$store.getters.getCoachById(this.$route.params.id);
+    }
   },
   methods: {
     onSubmit() {
@@ -40,8 +47,8 @@ export default {
       this.sendStatus = "success";
       this.setToggle();
     },
-    setToggle() {
-      this.$emit("toggle");
+    setToggle(isOpen) {
+      this.isOpen = !isOpen
     },
   },
 };

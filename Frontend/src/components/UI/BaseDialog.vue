@@ -14,16 +14,18 @@
 export default {
   emits: ["toggle"],
   //emit to open and close
-  data() {
-    return {
-      isOpen: false,
-    };
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true,
+    },
   },
   methods: {
     setIsOpen() {
-      this.$emit("toggle", (this.isOpen = !this.isOpen));
+      this.$emit("toggle",this.isOpen);
     },
   },
+  
 };
 </script>
 
