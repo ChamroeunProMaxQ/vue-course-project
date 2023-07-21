@@ -20,4 +20,4 @@ docker system prune -af
 echo "Building and starting new containers..."
 docker-compose up --build -d
 
-echo "Deployed new build Successfully
+echo "Deployed new build Successfully"
