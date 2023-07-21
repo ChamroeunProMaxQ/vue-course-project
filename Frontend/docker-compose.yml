@@ -1,0 +1,14 @@
+version: "3.9"
+name: course-project-frontend
+services:
+  front:
+    container_name: front-course-project
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    env_file: ./.env
+    ports:
+      - "3000:80"
+    command: pnpm start

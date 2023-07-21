@@ -1,0 +1,14 @@
+*.pem
+
+/*/node_modules
+
+/.vscode
+
+/*/data.json
+*/data.json
+Backend/data
+/Backend/data.json
+
+**/*.env
+
+.vscode/*
