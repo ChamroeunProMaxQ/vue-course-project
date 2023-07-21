@@ -49,8 +49,31 @@ const createCoach = async (req, res) => {
     }
 }
 
+
+const signUpCoach = ( coach ) => {
+    try { 
+        const data = readFile(); 
+        const coaches = data.coaches;
+        const id = 'c'.concat(parseInt(coaches[coaches.length - 1].id[1])+1);
+        const newCoach = {
+            id: id,
+            name: coach.name,
+            areas: coach.areas,
+            price: coach.price,
+            password: coach.password
+        };
+        coaches.push(newCoach);
+        data.coaches = coaches;
+        writeFile(data);
+        return newCoach;
+    }catch(err){
+        res.status(500).json({ message: err.message });
+    }
+}
+
 module.exports = {
     getCoach,
     getCoachById,
-    createCoach
+    createCoach,
+    signUpCoach
 };
