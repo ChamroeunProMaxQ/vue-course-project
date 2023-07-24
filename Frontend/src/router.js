@@ -4,6 +4,8 @@ import Request from './pages/TheRequest.vue'
 import Contact from './pages/TheContact.vue'
 import CoachDetail from './components/coach/CoachDetail.vue'
 import NotFound from './pages/NotFound.vue'
+import LogIn from './pages/auth/LogIn.vue'
+import Register from './pages/TheRegister.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,6 +14,11 @@ const router = createRouter({
             path: '/',
             redirect : '/coach',
     
+        },
+        {
+            path: '/auth/login',
+            component : LogIn,
+            name : 'login'
         },
         {
             path: '/coach', 
@@ -30,6 +37,12 @@ const router = createRouter({
             props : true,
             component : CoachDetail,
             name : 'coach-detail'
+        },
+        {
+            path: '/coach/register',
+            props : true,
+            component : Register,
+            name : 'coach-register'
         },
         {
             path: '/request',

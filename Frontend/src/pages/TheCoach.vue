@@ -9,7 +9,11 @@ import CoachItemContainer from "../components/coach/CoachItemContainer.vue";
   <div>
     <CoachFilter @filter="setFilter" />
     <BaseContainer>
-      <BaseButton mode="gray" @click="laodCoach">Refresh</BaseButton>
+      <div class="top-list">
+        <BaseButton mode="gray" @click="laodCoach">Refresh</BaseButton>
+        <BaseButton mode="#3d008d" @click="$router.push({'name' : 'coach-register'})">Register as a coach</BaseButton>
+      </div>
+      
       <CoachItemContainer
         v-for="coach in coaches"
         :key="coach.id"
@@ -58,4 +62,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.top-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+</style>

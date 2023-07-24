@@ -1,10 +1,7 @@
 import axios from "axios";
 
 export default {
-  async getCoachAction(context) {
-    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/coach`);
-    context.commit("getCoach", res.data);
-  },
+
   async getAreaAction(context) {
     const res = await axios.get(`${import.meta.env.VITE_API_HOST}/area`);
     context.commit("getArea", res.data);

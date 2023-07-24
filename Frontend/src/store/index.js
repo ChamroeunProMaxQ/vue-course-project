@@ -2,9 +2,15 @@ import { createStore } from 'vuex'
 import getter from './getter.js'
 import action from './action.js'
 import mutation from './mutation.js'
+import authModule from './auth/index.js'
+import coachModule from './coach/index.js'
 
 
 const store = createStore({
+    modules: {
+        auth: authModule,
+        coach: coachModule
+    },
     state: {
         areas : [
             {
@@ -19,20 +25,6 @@ const store = createStore({
                 id: 'a3',
                 name : 'Career',
             },
-        ],
-        coaches : [
-            {
-                id: 'c1',
-                name : 'Maximilian Schwarzmüller',
-                areas : ['a1', 'a2', 'a3'],
-                price : 2,
-            },
-            {
-                id: 'c2',
-                name : 'Chamroeun KH',
-                areas : ['a1', 'a2'],
-                price : 3,
-            }
         ],
         requests : []
     },

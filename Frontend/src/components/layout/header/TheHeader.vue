@@ -1,20 +1,27 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import BaseButton from '../../UI/BaseButton.vue';
 </script>
 
 <template>
   <header>
     <nav>
       <h1><RouterLink to="/coach"> Find Coach </RouterLink></h1>
-      
       <ul>
         <li>
           <RouterLink to="/coach">Coaches</RouterLink>
         </li>
-        <li style="position: relative">
+        <li style="position: relative" v-if="isLogged">
           <RouterLink to="/request">Request</RouterLink>
           <p class="req-num">{{ requestNumber !== 0 ? requestNumber : "" }}</p>
         </li>
+        <li style="position: relative" v-if="!isLogged">
+          <RouterLink :to="to" >Log in</RouterLink>
+        </li>
+        <li style="position: relative" v-if="isLogged">
+          <BaseButton mode="red" @click="logout">Log out</BaseButton>
+        </li>
+        
       </ul>
     </nav>
   </header>
@@ -22,11 +29,27 @@ import { RouterLink } from "vue-router";
 
 <script>
 export default {
+  components : {
+    BaseButton
+  },  
   computed: {
     requestNumber() {
       return this.$store.getters.getRequests.length;
     },
+    to() {
+      return {
+        name : 'login'
+      }
+    },
+    isLogged() {
+      return !!this.$store.getters.getUserAuth;
+    }
   },
+  methods : {
+    logout() {
+      this.$store.commit('logout'); 
+    }
+  }
 };
 </script>
 

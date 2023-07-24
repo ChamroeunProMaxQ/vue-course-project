@@ -18,14 +18,20 @@ components: {
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   computed: {
   },
-  // async mounted() {
-
-  // },
+  computed : {
+    isLogged() {
+      return !!this.$store.getters.getUserAuth;
+    }
+  },
+  created() {
+    if(!this.isLogged) {
+      this.$router.push({name: 'login'});
+    }
+  },
 };
 </script>
 
