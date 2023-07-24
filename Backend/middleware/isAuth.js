@@ -8,7 +8,7 @@ const isAuth = (req, res, next) => {
 
         const decodedToken = verifyToken(token);
 
-        req.coachId = decodedToken.id;
+        req.userId = decodedToken.id;
 
         next(); 
     } catch(err) {

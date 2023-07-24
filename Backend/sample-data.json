@@ -24,7 +24,15 @@
       "id": "r1",
       "coachId": "c1",
       "email": "stevenkakoreal@gmail.com",
-      "message": "I need help with Angular"
+      "message": "I need help with Angular",
+      "reqBy" : "u1"
+    }
+  ],
+  "users" : [
+    {
+      "id": "u1",
+      "email": "user@gmail.com",
+      "password": "123456"
     }
   ]
 }

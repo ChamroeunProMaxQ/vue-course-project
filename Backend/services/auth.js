@@ -8,7 +8,7 @@ const signUp = async (req, res, next) => {
     const { name, password, areas, price } = req.body;
 
     try {
-        const newCoach = coachService.signUpCoach({name, password, areas, price});
+        const newCoach = coachService.signUpCoach({email, password, });
         const token = signToken(newCoach);
         res.status(201).json({
             access_token  : token,

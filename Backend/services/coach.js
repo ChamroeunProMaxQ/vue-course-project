@@ -16,6 +16,7 @@ const getCoachById = async (req, res) => {
         const coachId = req.params.id;
         const data = readFile();
         const coach = data.coaches.find(coach => coach.id === coachId);
+        console.log(coach)
         if(!coach){
             const error = new Error('Could not find coach');
             error.statusCode = 404;
@@ -27,15 +28,14 @@ const getCoachById = async (req, res) => {
     }
 }
 
-const createCoach = async (req, res) => {
+const registerCoach = async (req, res) => {
     const {name , area, price} = req.body;
     try { 
         const data = readFile(); 
-        console.log(data)
         const coaches = data.coaches;
-        const id = 'c'.concat(parseInt(coaches[coaches.length - 1].id[1])+1);
-        const newCoach = {
-            id: id,
+        // const id = 'c'.concat(parseInt(coaches[coaches.length - 1].id[1])+1);
+        const newCoach = { 
+            id : req.userId,
             name: name,
             area: area,
             price: price
@@ -50,30 +50,8 @@ const createCoach = async (req, res) => {
 }
 
 
-const signUpCoach = ( coach ) => {
-    try { 
-        const data = readFile(); 
-        const coaches = data.coaches;
-        const id = 'c'.concat(parseInt(coaches[coaches.length - 1].id[1])+1);
-        const newCoach = {
-            id: id,
-            name: coach.name,
-            areas: coach.areas,
-            price: coach.price,
-            password: coach.password
-        };
-        coaches.push(newCoach);
-        data.coaches = coaches;
-        writeFile(data);
-        return newCoach;
-    }catch(err){
-        res.status(500).json({ message: err.message });
-    }
-}
-
 module.exports = {
     getCoach,
     getCoachById,
-    createCoach,
-    signUpCoach
+    registerCoach,
 };

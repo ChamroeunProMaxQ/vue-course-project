@@ -4,7 +4,8 @@ const writeFile = require("../util/writeFile");
 const getRequests = async (req, res) => {
     try {
     const data = readFile();
-    const requests = data.requests;
+    const allRequests = data.requests;
+    const requests = allRequests.filter(request => request.reqBy == req.userId);
     res.status(200).json(requests);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -22,6 +23,7 @@ const addRequest = async (req, res) => {
       email: email,
       message: message,
       coachId: coachId,
+      reqBy : req.userId
     };
     requests.push(newRequest);
     data.requests = requests;
