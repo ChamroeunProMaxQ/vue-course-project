@@ -16,7 +16,6 @@ const getCoachById = async (req, res) => {
         const coachId = req.params.id;
         const data = readFile();
         const coach = data.coaches.find(coach => coach.id === coachId);
-        console.log(coach)
         if(!coach){
             const error = new Error('Could not find coach');
             error.statusCode = 404;
@@ -29,7 +28,7 @@ const getCoachById = async (req, res) => {
 }
 
 const registerCoach = async (req, res) => {
-    const {name , area, price} = req.body;
+    const {name , areas, price} = req.body;
     try { 
         const data = readFile(); 
         const coaches = data.coaches;
@@ -37,7 +36,7 @@ const registerCoach = async (req, res) => {
         const newCoach = { 
             id : req.userId,
             name: name,
-            area: area,
+            areas: areas,
             price: price
         };
         coaches.push(newCoach);
