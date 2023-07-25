@@ -48,6 +48,9 @@ export default {
   methods : {
     logout() {
       this.$store.commit('logout'); 
+    },
+    async loadRequest() {
+      await this.$store.dispatch('getRequestAction');
     }
   }
 };

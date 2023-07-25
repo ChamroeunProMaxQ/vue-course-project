@@ -11,7 +11,8 @@ import CoachItemContainer from "../components/coach/CoachItemContainer.vue";
     <BaseContainer>
       <div class="top-list">
         <BaseButton mode="gray" @click="laodCoach">Refresh</BaseButton>
-        <BaseButton mode="#3d008d" @click="$router.push({'name' : 'coach-register'})">Register as a coach</BaseButton>
+        <BaseButton mode="#3d008d" @click="$router.push({'name' : 'coach-register'})" v-if="!isRegister">Register as a coach</BaseButton>
+        <BaseButton mode="#3d008d" @click="$router.push(`/coach/${userId}`)" v-else>View you detail as coach</BaseButton>
       </div>
       
       <CoachItemContainer
@@ -46,6 +47,12 @@ export default {
     filterdSkill() {
       return this.filterdSkill;
     },
+    isRegister() {
+      return this.$store.getters.getIsRegistered;
+    },
+    userId() {
+      return localStorage.getItem("userId");
+    }
   },
 
   created () {

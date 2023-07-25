@@ -31,6 +31,7 @@ export default {
     if(!this.isLogged) {
       this.$router.push({name: 'login'});
     }
+    this.$store.dispatch('getAreaAction');
   },
 };
 </script>
