@@ -37,12 +37,11 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      this.$store.dispatch('addRequestAction',{
+    async onSubmit() {
+      await this.$store.dispatch('addRequestAction',{
           coachId : this.$route.params.id,
           email : this.email,
           message : this.message,
-          id : Math.random().toString(),
       })
       this.sendStatus = "success";
       this.setToggle();

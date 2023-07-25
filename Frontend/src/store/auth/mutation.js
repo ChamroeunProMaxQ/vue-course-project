@@ -3,11 +3,11 @@ export default {
         state.token = payload.token;
         state.userId = payload.userId;
     },
-    logout(state) {
+    logout(state,payload) {
         state.token = null;
         state.userId = null;
 
         localStorage.clear();
-        this.$router.refresh();
+        payload.router.go(0);
     }
 }

@@ -13,7 +13,7 @@ import BaseButton from '../../UI/BaseButton.vue';
         </li>
         <li style="position: relative" v-if="isLogged">
           <RouterLink to="/request">Request</RouterLink>
-          <p class="req-num">{{ requestNumber !== 0 ? requestNumber : "" }}</p>
+          <p class="req-num">{{ requestNumber }}</p>
         </li>
         <li style="position: relative" v-if="!isLogged">
           <RouterLink :to="to" >Log in</RouterLink>
@@ -21,7 +21,6 @@ import BaseButton from '../../UI/BaseButton.vue';
         <li style="position: relative" v-if="isLogged">
           <BaseButton mode="red" @click="logout">Log out</BaseButton>
         </li>
-        
       </ul>
     </nav>
   </header>
@@ -42,13 +41,16 @@ export default {
       }
     },
     isLogged() {
-      return !!this.$store.getters.getUserAuth;
+      return this.$store.getters.getUserAuth;
     }
   },
  
   methods : {
     logout() {
-      this.$store.commit('logout'); 
+      this.$store.commit('logout',{
+        router : this.$router
+      });
+      this.$router.push({name : 'coach'})
     },
   },
 };

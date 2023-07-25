@@ -28,7 +28,7 @@ const createUser = async (req, res, next) => {
     const token = signToken(newUser);
     res.status(201).json({
       access_token: token,
-      coach: newUser,
+      user: newUser,
     });
   } catch (err) {
     return res.status(500).json({ message: err.message });

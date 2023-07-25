@@ -6,6 +6,7 @@ import CoachDetail from './components/coach/CoachDetail.vue'
 import NotFound from './pages/NotFound.vue'
 import LogIn from './pages/auth/LogIn.vue'
 import Register from './pages/TheRegister.vue'
+import SignUp from './pages/auth/SignUp.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,6 +20,11 @@ const router = createRouter({
             path: '/auth/login',
             component : LogIn,
             name : 'login'
+        },
+        {
+            path: '/auth/sign-up',
+            component : SignUp,
+            name : 'signup'
         },
         {
             path: '/coach', 

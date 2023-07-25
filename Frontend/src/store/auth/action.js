@@ -22,6 +22,7 @@ export default {
         userId: res.data.user.id,
       });
     } catch (error) {
+      console.log(error) 
       throw new Error(error.request.responseText);
     }
   },

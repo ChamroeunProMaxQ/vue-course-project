@@ -17,7 +17,11 @@ export default {
   async addRequestAction(context, payload) {
     const res = await axios.post(
       `${import.meta.env.VITE_API_HOST}/request`,
-      payload
+      payload, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }
     );
     context.commit("addRequest", res.data);
   },

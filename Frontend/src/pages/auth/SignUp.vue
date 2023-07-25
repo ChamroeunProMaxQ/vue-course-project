@@ -1,10 +1,8 @@
-<script setup></script>
-
 <template>
   <div>
     <BaseContainer>
-      <h3>Login Form</h3>
-      <form @submit.prevent="login">
+      <h3>Sign Up Form</h3>
+      <form @submit.prevent="signup">
         <input type="email" placeholder="Email" v-model="email" required />
         <input
           type="password"
@@ -12,8 +10,7 @@
           v-model="password"
           required
         />
-        <BaseButton mode="#3d008d"> Log In </BaseButton>
-        <RouterLink :to="{name: 'signup'}">Need an account ? Sign Up</RouterLink>
+        <BaseButton mode="#3d008d"> Sign Up </BaseButton>
       </form>
     </BaseContainer>
     <BaseDialog @toggle="setToggle" :isOpen="isOpen">
@@ -38,13 +35,13 @@ export default {
     },
   },
   methods: {
-    async login() {
+    async signup() {
       try {
         await this.$store.dispatch("getAuthAction", {
           email: this.email,
           password: this.password,
-          mode: "login",
         });
+
         this.$router.push({ name: "coach" });
       } catch (err) {
         const err_string = JSON.parse(err.message);
