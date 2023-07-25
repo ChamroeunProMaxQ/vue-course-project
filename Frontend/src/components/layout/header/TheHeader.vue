@@ -45,14 +45,12 @@ export default {
       return !!this.$store.getters.getUserAuth;
     }
   },
+ 
   methods : {
     logout() {
       this.$store.commit('logout'); 
     },
-    async loadRequest() {
-      await this.$store.dispatch('getRequestAction');
-    }
-  }
+  },
 };
 </script>
 

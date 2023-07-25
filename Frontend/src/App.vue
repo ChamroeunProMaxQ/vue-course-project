@@ -27,11 +27,12 @@ export default {
       return !!this.$store.getters.getUserAuth;
     }
   },
-  created() {
+  async created() {
     if(!this.isLogged) {
       this.$router.push({name: 'login'});
     }
-    this.$store.dispatch('getAreaAction');
+    await this.$store.dispatch('getAreaAction');
+    await this.$store.dispatch('getRequestAction');
   },
 };
 </script>

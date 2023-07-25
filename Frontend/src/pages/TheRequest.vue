@@ -14,11 +14,11 @@ export default {
         this.$store.getters.getRequests;
     }
   },
-  created() {
-    this.loadRequests();
+  async created() {
+   await this.loadRequests();
   },
   methods : {
-    loadRequests() {
+    async loadRequests() {
         this.$store.dispatch('getRequestAction');
     }
   }

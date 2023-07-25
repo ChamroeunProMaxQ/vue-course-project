@@ -7,7 +7,11 @@ export default {
     context.commit("getArea", res.data);
   },
   async getRequestAction(context) {
-    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/request`);
+    const res = await axios.get(`${import.meta.env.VITE_API_HOST}/request`,{
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      },
+    });
     context.commit("getRequest", res.data);
   },
   async addRequestAction(context, payload) {
