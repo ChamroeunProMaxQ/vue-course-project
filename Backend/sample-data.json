@@ -17,6 +17,12 @@
       "name": "Chamroeun KH",
       "areas": ["a1", "a2", "a3"],
       "price": 3
+    },
+    {
+      "id":"c3",
+      "name":"Vichhai",
+      "areas":["a1","a2","a3"],
+      "price": 4
     }
   ],
   "requests": [
