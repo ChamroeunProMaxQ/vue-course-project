@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ email }} to {{ "<" }} {{  getCoach ? getCoach.name : "" }} {{ ">" }}</h3>
+    <h3>{{ email }}</h3>
     <p>{{ message }}</p>
   </div>
 </template>
