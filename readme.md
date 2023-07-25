@@ -9,7 +9,7 @@ You should have:
 
 I highly recommend pnpm but you still can use npm or other node package manager.
 
-- pnpm : v7.26.2 <a hef="https://pnpm.io/installation">Install Link</a>
+- pnpm : v7.26.2^
 
 ## Getting started - Development
 
@@ -25,8 +25,6 @@ frontend
 ```
 VITE_API_HOST = http://localhost:8000 
 ```
-
-## Get Started
 
 Most of our command already scripted in package.json you just run the following command
 
@@ -55,7 +53,7 @@ pnpm start:dev
 cd frontend/ 
 pnpm install
 ```
-- run backend project
+- run frontend project
 ```
 pnpm start:dev
 ```
