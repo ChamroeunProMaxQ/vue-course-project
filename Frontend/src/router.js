@@ -14,17 +14,18 @@ const router = createRouter({
         {
             path: '/',
             redirect : '/coach',
-    
         },
         {
             path: '/auth/login',
             component : LogIn,
-            name : 'login'
+            name : 'login',
+            meta : { requiresUnauth : true }
         },
         {
             path: '/auth/sign-up',
             component : SignUp,
-            name : 'signup'
+            name : 'signup',
+            meta : { requiresUnauth : true }
         },
         {
             path: '/coach', 
@@ -48,7 +49,8 @@ const router = createRouter({
             path: '/coach/register',
             props : true,
             component : Register,
-            name : 'coach-register'
+            name : 'coach-register',
+            meta : { requiresAuth : true }
         },
         {
             path: '/request',
@@ -67,5 +69,17 @@ const router = createRouter({
         }
     ],
 });
+
+router.beforeEach((to, _, next) => {
+    if (to.meta.requiresAuth && !localStorage.getItem('userId')) {
+      next('/auth/login');
+    } else if (to.meta.requiresUnauth && !!localStorage.getItem('userId')) {
+      console.log(to);
+      next('/');
+    } else {
+      console.log(to.meta, !!localStorage.getItem('userId'));
+      next();
+    }
+  })
 
 export default router;
