@@ -77,7 +77,6 @@ router.beforeEach((to, _, next) => {
       console.log(to);
       next('/');
     } else {
-      console.log(to.meta, !!localStorage.getItem('userId'));
       next();
     }
   })
