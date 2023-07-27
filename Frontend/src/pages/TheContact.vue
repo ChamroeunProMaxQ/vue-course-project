@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import BaseDialog from "../components/UI/BaseDialog.vue";
 export default {
-  components: { BaseDialog },
   data() {
     return {
       email: "",

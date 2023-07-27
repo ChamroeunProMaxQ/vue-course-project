@@ -1,11 +1,13 @@
-import { createApp } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import BaseContainer from './components/UI/BaseContainer.vue';
-import BaseButton from './components/UI/BaseButton.vue';
-import BaseDialog from './components/UI/BaseDialog.vue'
+
+const BaseContainer = defineAsyncComponent( () => import('./components/UI/BaseContainer.vue'));
+const BaseButton = defineAsyncComponent( () => import('./components/UI/BaseButton.vue'));
+const BaseDialog = defineAsyncComponent( () => import('./components/UI/BaseDialog.vue'));
+
 
 const app = createApp(App);
 

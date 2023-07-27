@@ -1,8 +1,7 @@
 <script setup>
-import BaseButton from "../components/UI/BaseButton.vue";
-import CoachFilter from "../components/coach/CoachFilter.vue";
-import BaseContainer from "../components/UI/BaseContainer.vue";
-import CoachItemContainer from "../components/coach/CoachItemContainer.vue";
+import { defineAsyncComponent } from 'vue'
+const CoachFilter = defineAsyncComponent(() => import("../components/coach/CoachFilter.vue"));
+const CoachItemContainer = defineAsyncComponent(() => import("../components/coach/CoachItemContainer.vue"));
 </script>
 
 <template>
@@ -26,7 +25,6 @@ import CoachItemContainer from "../components/coach/CoachItemContainer.vue";
 
 <script>
 export default {
-  components: { BaseContainer, CoachItemContainer, BaseButton },
   data() {
     return {
       filterdSkill: [],

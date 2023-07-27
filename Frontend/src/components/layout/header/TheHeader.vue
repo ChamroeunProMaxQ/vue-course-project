@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import BaseButton from '../../UI/BaseButton.vue';
 </script>
 
 <template>
@@ -28,9 +27,6 @@ import BaseButton from '../../UI/BaseButton.vue';
 
 <script>
 export default {
-  components : {
-    BaseButton
-  },  
   computed: {
     requestNumber() {
       return this.$store.getters.getRequests.length;
