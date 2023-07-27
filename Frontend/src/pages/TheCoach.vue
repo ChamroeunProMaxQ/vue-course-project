@@ -44,9 +44,9 @@ export default {
         });
       });
     },
-    filterdSkill() {
-      return this.filterdSkill;
-    },
+    // filterdSkills() {
+    //   return this.filterdSkill;
+    // },
     isRegister() {
       return this.$store.getters.getIsRegistered;
     },

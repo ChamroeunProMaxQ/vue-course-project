@@ -26,4 +26,13 @@ export default {
       throw new Error(error.request.responseText);
     }
   },
+
+  logoutAction(context,payload) {
+    console.log("logoutAction")
+    context.commit('logout',{
+      router : payload.router,
+      token : null,
+      userId : null
+    })
+  }
 };

@@ -47,10 +47,9 @@ export default {
  
   methods : {
     logout() {
-      this.$store.commit('logout',{
+      this.$store.dispatch('logoutAction',{
         router : this.$router
       });
-      this.$router.push({name : 'coach'})
     },
   },
 };

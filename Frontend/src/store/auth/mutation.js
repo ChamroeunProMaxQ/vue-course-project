@@ -4,9 +4,9 @@ export default {
         state.userId = payload.userId;
     },
     logout(state,payload) {
-        state.token = null;
-        state.userId = null;
-
+        
+        state.token = payload.token;
+        state.userId = payload.userId;
         localStorage.clear();
         payload.router.go(0);
     }

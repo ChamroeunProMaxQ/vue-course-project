@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const signToken = (coach) => {
-  console.log(process.env.JWT_SECRET)
   const token = jwt.sign(
     {
       id: coach.id,

@@ -32,7 +32,9 @@ export default {
       this.$router.push({name: 'login'});
     }
     await this.$store.dispatch('getAreaAction');
-    await this.$store.dispatch('getRequestAction');
+    if(this.isLogged){
+      await this.$store.dispatch('getRequestAction');
+    }
   },
 };
 </script>
