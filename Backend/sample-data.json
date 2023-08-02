@@ -19,10 +19,16 @@
       "price": 3
     },
     {
-      "id":"c3",
-      "name":"Vichhai",
-      "areas":["a1","a2","a3"],
+      "id": "c3",
+      "name": "Vichhai",
+      "areas": ["a1", "a2", "a3"],
       "price": 4
+    },
+    {
+      "id": "c4",
+      "name": "Bunlong",
+      "areas": ["a1", "a2", "a3"],
+      "price": 5
     }
   ],
   "requests": [
@@ -31,10 +37,10 @@
       "coachId": "c1",
       "email": "stevenkakoreal@gmail.com",
       "message": "I need help with Angular",
-      "reqBy" : "u1"
+      "reqBy": "u1"
     }
   ],
-  "users" : [
+  "users": [
     {
       "id": "u1",
       "email": "user@gmail.com",
